@@ -1,0 +1,2 @@
+include ':app', ':feature-common', ':oil'
+rootProject.name='DynamicFeatureTraining'
