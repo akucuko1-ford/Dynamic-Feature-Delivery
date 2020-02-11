@@ -1,5 +1,6 @@
 package com.aranteknoloji.oil.viewmodels
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import com.aranteknoloji.oil.data.OilLifeApi
@@ -36,6 +37,8 @@ class ComponentOilLifeViewModel : ViewModel() {
     override fun onCleared() {
         super.onCleared()
         disposables.clear()
+        println("onCleared has been called")
+        Log.i("ViewModel", "onCleared has been called")
     }
 
     private fun getIntervalObs() =

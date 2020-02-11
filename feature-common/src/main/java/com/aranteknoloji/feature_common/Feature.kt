@@ -9,11 +9,11 @@ interface Feature<T> {
     fun inject(dependencies: T)
 
     interface Dependencies {
-        val context: Context
+        val activity: BaseActivity
         val info: BaseFeatureInfo
     }
 }
 
-interface OilFeature: Feature<OilFeature.Dependencies> {
-    interface Dependencies: Feature.Dependencies
+interface OilFeature : Feature<OilFeature.Dependencies> {
+    interface Dependencies : Feature.Dependencies
 }

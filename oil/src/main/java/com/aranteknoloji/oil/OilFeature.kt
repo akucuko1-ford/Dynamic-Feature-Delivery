@@ -15,7 +15,8 @@ lateinit var oilComponent: OilComponent
 @AutoService(OilFeature::class)
 class OilFeatureImpl : OilFeature {
 
-    override fun getFeatureComponent(): BaseComponent = OilLifeComponent()
+    override fun getFeatureComponent(): BaseComponent =
+        OilLifeComponent(oilComponent.activity)
 
     override fun launcherIntent(context: Context): Intent =
         Intent(context, OilLifeActivity::class.java)
