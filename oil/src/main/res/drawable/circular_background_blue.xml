@@ -4,4 +4,8 @@
 
     <solid android:color="@color/component_blue" />
 
+    <padding android:bottom="13dp" android:left="13dp" android:right="13dp" android:top="13dp" />
+
+    <size android:height="50dp" android:width="50dp" />
+
 </shape>
