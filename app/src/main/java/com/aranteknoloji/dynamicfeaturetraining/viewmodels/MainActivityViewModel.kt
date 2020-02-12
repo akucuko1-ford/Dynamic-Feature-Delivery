@@ -1,10 +1,8 @@
 package com.aranteknoloji.dynamicfeaturetraining.viewmodels
 
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import com.aranteknoloji.dynamicfeaturetraining.adapters.MainViewAdapter
-import com.aranteknoloji.dynamicfeaturetraining.views.MainActivity
 import com.aranteknoloji.feature_common.Feature
 import com.aranteknoloji.feature_common.FeatureTypes
 import com.aranteknoloji.feature_common.OilFeature
@@ -13,8 +11,7 @@ import javax.inject.Inject
 
 class MainActivityViewModel @Inject constructor(
     val adapter: MainViewAdapter,
-    oilFeatureDependencies: OilFeature.Dependencies,
-    mainActivity: MainActivity
+    oilFeatureDependencies: OilFeature.Dependencies
 ) : ViewModel() {
 
     init {
@@ -22,7 +19,6 @@ class MainActivityViewModel @Inject constructor(
         oilFeature?.let {
             adapter.setData(mutableListOf(Pair(FeatureTypes.OIL, it.getFeatureComponent())))
         }
-        Toast.makeText(mainActivity, "Main Activity context", Toast.LENGTH_LONG).show()
     }
 
     override fun onCleared() {
