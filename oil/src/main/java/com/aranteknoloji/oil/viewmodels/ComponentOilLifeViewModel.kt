@@ -10,8 +10,9 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.CompletableSubject
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class ComponentOilLifeViewModel : ViewModel() {
+class ComponentOilLifeViewModel @Inject constructor() : ViewModel() {
 
     val oilLifePercentage: ObservableField<String> = ObservableField("")
 
