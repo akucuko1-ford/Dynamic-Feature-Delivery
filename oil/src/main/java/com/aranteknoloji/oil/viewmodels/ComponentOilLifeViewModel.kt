@@ -8,7 +8,6 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import io.reactivex.subjects.CompletableSubject
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -16,23 +15,17 @@ class ComponentOilLifeViewModel @Inject constructor() : ViewModel() {
 
     val oilLifePercentage: ObservableField<String> = ObservableField("")
 
-    private val loadings = listOf("Loading", "Loading.", "Loading..", "Loading...")
     private val disposables = CompositeDisposable()
     private val oilLifeApi = OilLifeApi()
 
     init {
-        val subject = CompletableSubject.create()
-        disposables.add(oilLifeApi.getOilLifeInfo()
-            .doOnNext { subject.onComplete() }
-            .subscribeOn(Schedulers.computation())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { oilLifePercentage.set(it) })
-
-        disposables.add(getIntervalObs()
-            .takeUntil(subject.toObservable<Any>())
-            .subscribeOn(Schedulers.computation())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe { oilLifePercentage.set(it) })
+        disposables.add(
+            oilLifeApi.getOilLifeInfo()
+                .mergeUntilCompletes(getIntervalObs())
+                .subscribeOn(Schedulers.computation())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe { oilLifePercentage.set(it) }
+        )
     }
 
     override fun onCleared() {
@@ -42,7 +35,12 @@ class ComponentOilLifeViewModel @Inject constructor() : ViewModel() {
         Log.i("ViewModel", "onCleared has been called")
     }
 
-    private fun getIntervalObs() =
-        Observable.interval(0, 500, TimeUnit.MILLISECONDS)
+    private fun getIntervalObs(): Observable<String> {
+        val loadings = listOf("Loading", "Loading.", "Loading..", "Loading...")
+        return Observable.interval(0, 500, TimeUnit.MILLISECONDS)
             .map { loadings[it.toInt() % 4] }
+    }
 }
+
+fun <T> Observable<T>.mergeUntilCompletes(source2: Observable<T>): Observable<T> =
+    Observable.merge(this, source2.takeUntil(this))
