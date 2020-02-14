@@ -11,12 +11,11 @@ import io.reactivex.schedulers.Schedulers
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class ComponentOilLifeViewModel @Inject constructor() : ViewModel() {
+class ComponentOilLifeViewModel @Inject constructor(oilLifeApi: OilLifeApi) : ViewModel() {
 
     val oilLifePercentage: ObservableField<String> = ObservableField("")
 
     private val disposables = CompositeDisposable()
-    private val oilLifeApi = OilLifeApi()
 
     init {
         disposables.add(

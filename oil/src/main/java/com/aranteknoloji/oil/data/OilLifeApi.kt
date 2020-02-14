@@ -1,9 +1,12 @@
 package com.aranteknoloji.oil.data
 
+import com.aranteknoloji.oil.di.OilScope
 import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class OilLifeApi {
+@OilScope
+class OilLifeApi @Inject constructor() {
 
     fun getOilLifeInfo() : Observable<String> =
         Observable.just("97")
