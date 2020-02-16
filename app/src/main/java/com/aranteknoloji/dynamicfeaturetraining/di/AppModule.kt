@@ -2,9 +2,9 @@ package com.aranteknoloji.dynamicfeaturetraining.di
 
 import android.content.Context
 import com.aranteknoloji.dynamicfeaturetraining.MainApplication
+import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemSpaceDecorator
 import com.aranteknoloji.dynamicfeaturetraining.views.MainActivity
 import com.aranteknoloji.feature_common.BaseActivity
-import com.aranteknoloji.feature_common.BaseFeatureInfo
 import com.aranteknoloji.feature_common.OilFeature
 import dagger.Module
 import dagger.Provides
@@ -25,6 +25,10 @@ object AppModule {
     fun providesOilFeatureDependencies(mainActivity: MainActivity): OilFeature.Dependencies =
         object : OilFeature.Dependencies {
             override val activity: BaseActivity = mainActivity
-            override val info: BaseFeatureInfo = BaseFeatureInfo("Deneme yag feature i")
         }
+
+    @Provides
+    @Reusable
+    @JvmStatic
+    fun providesItemSpaceDecorator(): ItemSpaceDecorator = ItemSpaceDecorator(5)
 }

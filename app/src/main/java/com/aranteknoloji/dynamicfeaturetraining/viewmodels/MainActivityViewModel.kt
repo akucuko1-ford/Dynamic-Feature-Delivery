@@ -2,6 +2,7 @@ package com.aranteknoloji.dynamicfeaturetraining.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemSpaceDecorator
 import com.aranteknoloji.dynamicfeaturetraining.adapters.MainViewAdapter
 import com.aranteknoloji.feature_common.Feature
 import com.aranteknoloji.feature_common.FeatureTypes
@@ -11,13 +12,18 @@ import javax.inject.Inject
 
 class MainActivityViewModel @Inject constructor(
     val adapter: MainViewAdapter,
+    val itemSpaceDecorator: ItemSpaceDecorator,
     oilFeatureDependencies: OilFeature.Dependencies
 ) : ViewModel() {
 
     init {
         val oilFeature: OilFeature? = getFeature(oilFeatureDependencies)
         oilFeature?.let {
-            adapter.setData(mutableListOf(Pair(FeatureTypes.OIL, it.getFeatureComponent())))
+            adapter.setData(mutableListOf(
+                Pair(FeatureTypes.OIL, it.getFeatureComponent()),
+                Pair(FeatureTypes.FUEL, it.getFeatureComponent()),
+                Pair(FeatureTypes.TIRE, it.getFeatureComponent())
+            ))
         }
     }
 

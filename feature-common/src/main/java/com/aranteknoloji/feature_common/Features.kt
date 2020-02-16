@@ -10,7 +10,6 @@ interface Feature<T> {
 
     interface Dependencies {
         val activity: BaseActivity
-        val info: BaseFeatureInfo
     }
 }
 
