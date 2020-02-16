@@ -1,4 +1,4 @@
-package com.aranteknoloji.feature_common
+package com.aranteknoloji.feature_common.base
 
 import androidx.appcompat.app.AppCompatActivity
 

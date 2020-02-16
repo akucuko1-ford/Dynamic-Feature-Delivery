@@ -4,9 +4,9 @@ import android.content.Intent
 import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
-import com.aranteknoloji.dynamicfeaturetraining.ViewModelFactory
-import com.aranteknoloji.feature_common.BaseActivity
-import com.aranteknoloji.feature_common.BaseComponent
+import com.aranteknoloji.feature_common.viewmodel.ViewModelFactory
+import com.aranteknoloji.feature_common.base.BaseActivity
+import com.aranteknoloji.feature_common.base.BaseComponent
 import com.aranteknoloji.oil.databinding.ComponentOilBinding
 import com.aranteknoloji.oil.di.OilScope
 import com.aranteknoloji.oil.viewmodels.ComponentOilLifeViewModel

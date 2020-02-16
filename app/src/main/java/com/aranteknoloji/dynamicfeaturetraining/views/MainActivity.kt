@@ -2,10 +2,10 @@ package com.aranteknoloji.dynamicfeaturetraining.views
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
-import com.aranteknoloji.dynamicfeaturetraining.ViewModelFactory
+import com.aranteknoloji.feature_common.viewmodel.ViewModelFactory
 import com.aranteknoloji.dynamicfeaturetraining.databinding.ActivityMainBinding
 import com.aranteknoloji.dynamicfeaturetraining.viewmodels.MainActivityViewModel
-import com.aranteknoloji.feature_common.BaseActivity
+import com.aranteknoloji.feature_common.base.BaseActivity
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector

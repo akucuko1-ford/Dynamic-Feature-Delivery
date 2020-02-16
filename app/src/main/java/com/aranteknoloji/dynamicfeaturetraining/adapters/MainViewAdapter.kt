@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.aranteknoloji.dynamicfeaturetraining.utils.getNonNull
 import com.aranteknoloji.dynamicfeaturetraining.utils.getViewType
 import com.aranteknoloji.dynamicfeaturetraining.utils.put
-import com.aranteknoloji.feature_common.BaseComponent
+import com.aranteknoloji.feature_common.base.BaseComponent
 import com.aranteknoloji.feature_common.FeatureTypes
 import javax.inject.Inject
 

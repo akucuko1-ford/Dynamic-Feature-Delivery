@@ -2,7 +2,7 @@ package com.aranteknoloji.oil
 
 import android.content.Context
 import android.content.Intent
-import com.aranteknoloji.feature_common.BaseComponent
+import com.aranteknoloji.feature_common.base.BaseComponent
 import com.aranteknoloji.feature_common.OilFeature
 import com.aranteknoloji.oil.di.DaggerOilComponent
 import com.aranteknoloji.oil.di.OilComponent

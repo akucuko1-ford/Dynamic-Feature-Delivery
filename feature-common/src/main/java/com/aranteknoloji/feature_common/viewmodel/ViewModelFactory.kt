@@ -1,4 +1,4 @@
-package com.aranteknoloji.dynamicfeaturetraining
+package com.aranteknoloji.feature_common.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,7 +10,6 @@ class ViewModelFactory @Inject constructor(
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return viewModelProviders[modelClass]?.get() as T
-    }
+    override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+        viewModelProviders[modelClass]?.get() as T
 }

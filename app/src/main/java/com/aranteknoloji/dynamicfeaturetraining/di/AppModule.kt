@@ -4,7 +4,7 @@ import android.content.Context
 import com.aranteknoloji.dynamicfeaturetraining.MainApplication
 import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemSpaceDecorator
 import com.aranteknoloji.dynamicfeaturetraining.views.MainActivity
-import com.aranteknoloji.feature_common.BaseActivity
+import com.aranteknoloji.feature_common.base.BaseActivity
 import com.aranteknoloji.feature_common.OilFeature
 import dagger.Module
 import dagger.Provides

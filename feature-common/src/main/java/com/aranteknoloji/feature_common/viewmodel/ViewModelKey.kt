@@ -1,4 +1,4 @@
-package com.aranteknoloji.dynamicfeaturetraining.di
+package com.aranteknoloji.feature_common.viewmodel
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

@@ -2,6 +2,8 @@ package com.aranteknoloji.feature_common
 
 import android.content.Context
 import android.content.Intent
+import com.aranteknoloji.feature_common.base.BaseActivity
+import com.aranteknoloji.feature_common.base.BaseComponent
 
 interface Feature<T> {
     fun getFeatureComponent(): BaseComponent

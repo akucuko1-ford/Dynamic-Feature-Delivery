@@ -1,7 +1,7 @@
 package com.aranteknoloji.oil.di
 
 import androidx.lifecycle.ViewModel
-import com.aranteknoloji.dynamicfeaturetraining.di.ViewModelKey
+import com.aranteknoloji.feature_common.viewmodel.ViewModelKey
 import com.aranteknoloji.oil.viewmodels.ComponentOilLifeViewModel
 import com.aranteknoloji.oil.views.di.OilLifeActivityComponent
 import dagger.Binds
