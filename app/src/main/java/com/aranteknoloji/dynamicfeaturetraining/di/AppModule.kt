@@ -3,6 +3,8 @@ package com.aranteknoloji.dynamicfeaturetraining.di
 import android.content.Context
 import com.aranteknoloji.dynamicfeaturetraining.MainApplication
 import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemSpaceDecorator
+import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemTouchAdapter
+import com.aranteknoloji.dynamicfeaturetraining.adapters.MainViewAdapter
 import com.aranteknoloji.dynamicfeaturetraining.views.MainActivity
 import com.aranteknoloji.feature_common.base.BaseActivity
 import com.aranteknoloji.feature_common.OilFeature
@@ -31,4 +33,10 @@ object AppModule {
     @Reusable
     @JvmStatic
     fun providesItemSpaceDecorator(): ItemSpaceDecorator = ItemSpaceDecorator(5)
+
+    @Provides
+    @Reusable
+    @JvmStatic
+    fun providesItemTouchAdapter(adapter: MainViewAdapter): ItemTouchAdapter =
+        ItemTouchAdapter(adapter)
 }

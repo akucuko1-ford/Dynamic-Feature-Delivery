@@ -3,6 +3,7 @@ package com.aranteknoloji.dynamicfeaturetraining.viewmodels
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemSpaceDecorator
+import com.aranteknoloji.dynamicfeaturetraining.adapters.ItemTouchAdapter
 import com.aranteknoloji.dynamicfeaturetraining.adapters.MainViewAdapter
 import com.aranteknoloji.feature_common.Feature
 import com.aranteknoloji.feature_common.FeatureTypes
@@ -13,6 +14,7 @@ import javax.inject.Inject
 class MainActivityViewModel @Inject constructor(
     val adapter: MainViewAdapter,
     val itemSpaceDecorator: ItemSpaceDecorator,
+    val itemTouchAdapter: ItemTouchAdapter,
     oilFeatureDependencies: OilFeature.Dependencies
 ) : ViewModel() {
 
