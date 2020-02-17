@@ -29,6 +29,12 @@ class MainActivityViewModel @Inject constructor(
         }
     }
 
+    fun setOnSwipeRemove(action: (() -> Unit) -> Unit) {
+        adapter.onSwipeRemove = { item, position ->
+            action { adapter.addItem(item, position) }
+        }
+    }
+
     override fun onCleared() {
         super.onCleared()
         Log.i("ViewModel", "onCleared has been called on MainActivityViewModel")

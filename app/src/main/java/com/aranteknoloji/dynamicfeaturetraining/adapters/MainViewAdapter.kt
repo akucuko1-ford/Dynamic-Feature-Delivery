@@ -18,6 +18,13 @@ class MainViewAdapter @Inject constructor() :
     private var data: MutableList<Pair<FeatureTypes, BaseComponent>> = mutableListOf()
     private val items: MutableMap<FeatureTypes, BaseComponent> = mutableMapOf()
 
+    var onSwipeRemove: ((Pair<FeatureTypes, BaseComponent>, Int) -> Unit)? = null
+    val addItem: (Pair<FeatureTypes, BaseComponent>, Int) -> Unit = { item, position ->
+        data.add(position, item)
+        items put item
+        notifyItemInserted(position)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder =
         MainViewHolder(items.getNonNull(getViewType(viewType)).holderView(parent))
 
@@ -32,6 +39,7 @@ class MainViewAdapter @Inject constructor() :
         val item = data.removeAt(position)
         items.remove(item.first)
         notifyItemRemoved(position)
+        onSwipeRemove?.invoke(item, position)
     }
 
     override fun getItemViewType(position: Int): Int =

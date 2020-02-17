@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">DynamicFeatureTraining</string>
     <string name="title_oil">Oil</string>
+
+    <string name="item_removed_text">Item has been removed</string>
+    <string name="item_removed_action">UNDO</string>
 </resources>

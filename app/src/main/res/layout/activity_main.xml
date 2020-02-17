@@ -9,23 +9,20 @@
             type="com.aranteknoloji.dynamicfeaturetraining.viewmodels.MainActivityViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/main_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".views.MainActivity">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/main_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:adapter="@{viewModel.adapter}"
             app:decoration="@{viewModel.itemSpaceDecorator}"
-            app:touchAdapter="@{viewModel.itemTouchAdapter}"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:touchAdapter="@{viewModel.itemTouchAdapter}" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>
